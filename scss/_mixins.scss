@@ -1,0 +1,66 @@
+/* @mixin flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+ } */
+
+ @mixin flexbox($display, $align, $justify) {
+    display: $display;
+    align-items: $align;
+    justify-content: $justify;
+ }
+
+ @mixin psevdo-element($top, $right, $bottom, $left, $content){
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    content: $content;
+}
+
+@mixin list-unstyled{
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+// &__logo{
+//     @include link-unstyled;
+//     color: #fff;
+// }
+
+@mixin link-unstyled{
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+}
+
+@mixin font-weight{
+    font-weight: bold;
+}
+
+
+@mixin responsive-min($width){
+    @media only screen and (min-width: $width){
+        @content;
+    }
+}
+
+@mixin responsive-max($width){
+    @media only screen and (max-width: $width){
+        @content;
+    }
+}
+
+@mixin RetinaBg{
+    @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (   min--moz-device-pixel-ratio: 2),
+    only screen and (     -o-min-device-pixel-ratio: 2/1),
+    only screen and (        min-device-pixel-ratio: 2),
+    only screen and (                min-resolution: 192dpi),
+    only screen and (                min-resolution: 2dppx) {
+        @content;
+    }
+}
